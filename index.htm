@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="az">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habit Tracker</title>
-    <!-- Favİcon Link -->
-     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
     <style>
         * {
             margin: 0;
@@ -43,6 +41,7 @@
             color: var(--text-primary);
             min-height: 100vh;
             transition: all 0.3s ease;
+            overflow-x: hidden;
         }
 
         .container {
@@ -378,22 +377,195 @@
         }
 
         @media (max-width: 768px) {
-            .calendar-header {
-                flex-direction: column;
-                gap: 20px;
+            .container {
+                padding: 10px;
+                max-width: 100vw;
+                overflow-x: hidden;
+            }
+            
+            .header {
+                margin-bottom: 20px;
             }
             
             .title {
-                font-size: 2rem;
+                font-size: 1.8rem;
+                margin-bottom: 8px;
             }
             
-            .day-cell {
-                min-height: 60px;
+            .subtitle {
+                font-size: 1rem;
             }
             
             .theme-toggle {
                 position: relative;
+                margin-bottom: 15px;
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 10px;
                 margin-bottom: 20px;
+            }
+            
+            .stat-card {
+                padding: 15px;
+                border-radius: 10px;
+            }
+            
+            .stat-number {
+                font-size: 2rem;
+                margin-bottom: 5px;
+            }
+            
+            .stat-label {
+                font-size: 0.9rem;
+            }
+            
+            .calendar-container {
+                padding: 15px;
+                border-radius: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .calendar-header {
+                flex-direction: column;
+                gap: 15px;
+                margin-bottom: 20px;
+            }
+            
+            .month-year {
+                font-size: 1.3rem;
+                min-width: auto;
+            }
+            
+            .nav-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1.1rem;
+            }
+            
+            .weekdays {
+                gap: 5px;
+                margin-bottom: 10px;
+            }
+            
+            .weekday {
+                padding: 10px 2px;
+                font-size: 0.8rem;
+            }
+            
+            .calendar-grid {
+                gap: 5px;
+            }
+            
+            .day-cell {
+                min-height: 50px;
+                border-radius: 8px;
+                padding: 2px;
+            }
+            
+            .day-number {
+                font-size: 0.9rem;
+                margin-bottom: 3px;
+            }
+            
+            .status-dot {
+                width: 8px;
+                height: 8px;
+            }
+            
+            .day-controls {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 90vw;
+                max-width: 350px;
+                padding: 20px;
+                border-radius: 15px;
+                max-height: 80vh;
+                overflow-y: auto;
+            }
+            
+            .controls-header {
+                font-size: 1.1rem;
+                margin-bottom: 20px;
+            }
+            
+            .control-group {
+                margin-bottom: 15px;
+            }
+            
+            .control-label {
+                font-size: 0.95rem;
+                margin-bottom: 8px;
+            }
+            
+            .button-group {
+                flex-direction: column;
+                gap: 8px;
+            }
+            
+            .control-btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                border-radius: 8px;
+            }
+            
+            .close-btn {
+                padding: 10px 15px;
+                margin-top: 15px;
+                border-radius: 8px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 8px;
+            }
+            
+            .title {
+                font-size: 1.6rem;
+            }
+            
+            .calendar-container {
+                padding: 10px;
+            }
+            
+            .day-cell {
+                min-height: 45px;
+            }
+            
+            .day-number {
+                font-size: 0.8rem;
+            }
+            
+            .status-dot {
+                width: 6px;
+                height: 6px;
+            }
+            
+            .day-controls {
+                width: 95vw;
+                padding: 15px;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .day-cell {
+                min-height: 40px;
+            }
+            
+            .weekday {
+                font-size: 0.7rem;
+                padding: 8px 1px;
             }
         }
     </style>
@@ -403,7 +575,7 @@
         <div class="header">
             <button class="theme-toggle" onclick="toggleTheme()">🌙/☀️</button>
             <h1 class="title">Habit Tracker</h1>
-            <p class="subtitle">Smoking and Sports Pursuit</p>
+            <p class="subtitle">Siqaret və İdman Takibi</p>
         </div>
 
         <div class="stats-grid">
